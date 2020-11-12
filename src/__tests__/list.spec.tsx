@@ -6,16 +6,21 @@ afterAll(() => {
     cleanup();
 });
 
-describe('<List />', () => {
+describe('Testing List component behavior', () => {
   
     it('Initializes empty list', async () => {
         const { container } = render(<List ListContent={[]}/>);
-        expect(container.querySelector("[class='empty-list']")).toContainHTML("<h2>List is empty</h2>");
+        expect(container.querySelector("[class='empty-list']")).toContainHTML("<h2>There are no products to donate.</h2>");
     });
 
     it('Initializes list with element', async () => {
-        const { container } = render(<List ListContent={[{ Item: "Dissolution 2" }]}/>);
-        expect(container.querySelector("[class='list-component']")).toContainHTML("<p>Dissolution 2</p>");
+        const { container } = render(
+            <List ListContent={[{
+                giver : "Vitor", 
+                receiver : "Pedro" 
+            }]}
+        />);
+        expect(container.querySelector("[class='list-component']")).toBeInTheDocument();
 
     });
 });

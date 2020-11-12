@@ -1,35 +1,25 @@
 import React, { useState } from 'react';
-import List from "./components/List";
+
 import "./styles/index.css";
 
-interface Content {
-  Item: string
-}
+import List from "./components/List";
+import Form from "./components/Form";
+
+import { ActionProps, Content } from "./interfaces/forms";
 
 function App() {
   const [list, setList] = useState<Array<Content>>([]);
 
-  const add = () => {
-
-    setList([...list, {
-      Item: "Dissolution " + list.length + 1
-    }]);
-
-  }
+  const addDonationToList = (dataValue : Content) => setList([...list, dataValue]);
 
   return (
     <div className="app">
       <h2>Give away</h2>
 
-      <List ListContent={list} />
+      <Form GiveGift={addDonationToList}/>
 
-      <button 
-        name="btn-increment" 
-        className="btn-increment" 
-        onClick={add}
-      >
-        Give it away
-      </button>
+      <List ListContent={list} />
+      
     </div>
   );
 }
