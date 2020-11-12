@@ -1,0 +1,23 @@
+.app {
+    width: 500px;
+    height: 400px;
+    text-align: center;
+
+}
+
+.app h2 {
+    color: black;
+}
+
+.app .list-component {
+    color: #707077;
+}
+
+.btn-increment {
+    background-color: cadetblue;
+    color: darkgreen;
+    width: 170px;
+    border: none;
+    height: 40px;
+    margin-top: 20px;
+}

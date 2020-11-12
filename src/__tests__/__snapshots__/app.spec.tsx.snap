@@ -1,20 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> Matches snapshot 1`] = `
+exports[`Testing App component behavior Matches snapshot 1`] = `
 <body>
   <div>
     <div
-      class="App"
+      class="app"
     >
       <h2>
         Give away
       </h2>
-      <h2>
-        Give away
-      </h2>
-      <h2>
-        Give away
-      </h2>
+      <div
+        class="empty-list"
+      >
+        <h2>
+          List is empty
+        </h2>
+      </div>
+      <button
+        class="btn-increment"
+        name="btn-increment"
+      >
+        Give it away
+      </button>
     </div>
   </div>
 </body>
