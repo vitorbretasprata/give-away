@@ -28,7 +28,7 @@ describe('Testing App component behavior', () => {
     const { container } = renderUI({});
 
     fireEvent.click(screen.getByRole('button', {
-      name: "Give it away"
+      name: "Save donation"
     }));
 
     expect(container.querySelector("[class='list-component']")).toBeInTheDocument();

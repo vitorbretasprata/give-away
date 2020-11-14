@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Content } from "../interfaces/forms";
 
 interface ListProps {
@@ -18,7 +18,7 @@ function List(props : ListProps) {
     return (
         <div className="list-component">
             {props.ListContent.map(content => (
-                <div>
+                <div key={(props.ListContent.length + 1).toString()}>
                     
                 </div>
             ))}

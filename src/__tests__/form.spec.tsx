@@ -3,7 +3,18 @@ import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import Form from '../components/Form';
 
 function renderUI() {
-  return render(<Form GiveGift={({ giver , receiver }) => {}}/>);
+  const utils =  render(<Form GiveGift={({ giver , receiver }) => {}}/>);
+  const inputGiver = utils.getByLabelText("giver-input");
+  const inputReceiver = utils.getByLabelText("receiver-input");
+  const inputButton = utils.getByDisplayValue("Save donation");
+
+  return {
+    ...utils,
+    inputGiver,
+    inputReceiver,
+    inputButton
+  }
+
 }
 
 afterEach(() => {
@@ -17,18 +28,20 @@ describe('Testing Form component behavior', () => {
       expect(container.querySelector("[class='form-container']")).toBeInTheDocument();
   });
 
-  it('Check inputs of form', async () => {
-    const { container } = renderUI();
+  it('Check inputs of form and submit', async () => {
+    const { inputGiver, inputReceiver, inputButton } = renderUI();
 
-    fireEvent.click(screen.getByRole('button', {
-      name: "Give it away"
-    }));
+    fireEvent.change(inputGiver, { target: { value: "Vitor"} });
+    fireEvent.change(inputReceiver, { target: { value: "Prata"} });
 
-    expect(container.querySelector("[class='list-component']")).toBeInTheDocument();
+    expect(inputGiver).toHaveValue("Vitor");
+    expect(inputReceiver).toHaveValue("Prata");
+
+    fireEvent.click(inputButton);
+
+    expect(inputGiver).toHaveValue("");
+    expect(inputReceiver).toHaveValue("");
   });
 
-  it('Test submit of form', async () => {
-    
-  });
 });
 

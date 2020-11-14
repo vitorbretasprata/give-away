@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 
 import { Content, ActionProps } from "../interfaces/forms";
 
@@ -10,7 +10,15 @@ export default function FormGift(props : ActionProps) {
         receiver: ""
     });
 
-    const handleGift = () => GiveGift(data);
+    const handleGift = (e : FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        GiveGift(data);
+        setData({
+            giver: "",
+            receiver: ""
+        });
+    }
 
     const handleChange = (e : ChangeEvent<HTMLInputElement>) => {
         const { target : { name , value } } = e;
@@ -29,9 +37,10 @@ export default function FormGift(props : ActionProps) {
                     Giver: 
                 </label>
                 <input 
-                    name="giver-gift" 
+                    name="giver" 
                     className="input-gift" 
                     id="giver-gift"
+                    aria-label="giver-input"
                     value={data.giver}
                     onChange={handleChange}
                 />
@@ -41,18 +50,19 @@ export default function FormGift(props : ActionProps) {
                 <label 
                     htmlFor="receiver-gift"
                 >
-                    Giver: 
+                    Receiver: 
                 </label>
                 <input 
-                    name="receiver-gift" 
+                    name="receiver" 
                     className="input-gift" 
                     id="receiver-gift" 
+                    aria-label="receiver-input"
                     value={data.receiver}
                     onChange={handleChange}
                 />
             </div>
 
-            <input type="submit" value="Save donation"/>
+            <input type="submit" value="Save donation" />
         </form>
     );
 }

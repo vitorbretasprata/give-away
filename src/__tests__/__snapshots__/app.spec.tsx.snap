@@ -9,19 +9,49 @@ exports[`Testing App component behavior Matches snapshot 1`] = `
       <h2>
         Give away
       </h2>
+      <form
+        class="form-container"
+      >
+        <div>
+          <label
+            for="giver-gift"
+          >
+            Giver:
+          </label>
+          <input
+            aria-label="giver-input"
+            class="input-gift"
+            id="giver-gift"
+            name="giver"
+            value=""
+          />
+        </div>
+        <div>
+          <label
+            for="receiver-gift"
+          >
+            Receiver:
+          </label>
+          <input
+            aria-label="receiver-input"
+            class="input-gift"
+            id="receiver-gift"
+            name="receiver"
+            value=""
+          />
+        </div>
+        <input
+          type="submit"
+          value="Save donation"
+        />
+      </form>
       <div
         class="empty-list"
       >
         <h2>
-          List is empty
+          There are no products to donate.
         </h2>
       </div>
-      <button
-        class="btn-increment"
-        name="btn-increment"
-      >
-        Give it away
-      </button>
     </div>
   </div>
 </body>
