@@ -1,0 +1,63 @@
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 42px;
+    box-shadow:  5px 5px 10px #ccd3d5, 
+             -5px -5px 10px #ffffff;
+}
+
+.form-container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 1.5rem;
+}
+
+.form-container div label {
+    padding: .4rem .5rem;
+    text-align: left;
+    width: 100%;
+    color: darkgrey;
+}
+
+
+.form-container > input {
+    display: block;
+    width: 20rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-height: 2.8rem;
+    border-radius: 2rem;
+    background: #ebf2f5;
+    box-shadow:  5px 5px 10px #ccd3d5, 
+             -5px -5px 10px #ffffff;
+    border: none;
+
+    font-size: 1.6rem;
+    background: -webkit-linear-gradient(rgb(104, 104, 104), rgb(59, 88, 84));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-container > h2 {
+    color: darkslategrey;
+    margin: 1rem 0;
+}
+
+.form-container > input:active {
+    box-shadow: inset 5px 5px 10px #ccd3d5, 
+                inset -5px -5px 10px #ffffff;
+}
+
+.form-container div input {
+    display: block;
+    width: 20rem;
+    min-height: 2.2rem;
+    border-radius: 2rem;
+    border: none;
+}

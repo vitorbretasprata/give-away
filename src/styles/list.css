@@ -1,0 +1,39 @@
+.empty-list {
+    padding: 3rem 0;
+    color: darkslategrey;
+}
+
+.content-container {
+    width: 100%;
+    display: flex;
+    margin-top: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    border-radius: 42px;
+    box-shadow:  5px 5px 10px #ccd3d5, 
+             -5px -5px 10px #ffffff;
+}
+
+.content-container p {
+    font-size: 2.3rem;
+    padding: 1rem 0;
+}
+
+.list-component {
+    padding-bottom: 2rem;
+}
+
+.content-container p span {
+    font-size: 2rem;
+}
+
+.content-container p > span:first-child {
+    color: dodgerblue;
+}
+
+.content-container p:nth-child(2) span {
+    color: forestgreen;
+}

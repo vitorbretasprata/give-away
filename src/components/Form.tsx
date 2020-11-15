@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 
+import "../styles/form.css";
 import { Content, ActionProps } from "../interfaces/forms";
 
 export default function FormGift(props : ActionProps) {
@@ -13,11 +14,13 @@ export default function FormGift(props : ActionProps) {
     const handleGift = (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        GiveGift(data);
-        setData({
-            giver: "",
-            receiver: ""
-        });
+        if(data.giver && data.receiver) {
+            GiveGift(data);
+            setData({
+                giver: "",
+                receiver: ""
+            });
+        }
     }
 
     const handleChange = (e : ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +33,8 @@ export default function FormGift(props : ActionProps) {
 
     return (
         <form onSubmit={handleGift} className="form-container">
+            <h2>Give away</h2>
+
             <div>
                 <label 
                     htmlFor="giver-gift"
@@ -38,6 +43,7 @@ export default function FormGift(props : ActionProps) {
                 </label>
                 <input 
                     name="giver" 
+                    type="text"
                     className="input-gift" 
                     id="giver-gift"
                     aria-label="giver-input"
@@ -54,6 +60,7 @@ export default function FormGift(props : ActionProps) {
                 </label>
                 <input 
                     name="receiver" 
+                    type="text"
                     className="input-gift" 
                     id="receiver-gift" 
                     aria-label="receiver-input"
